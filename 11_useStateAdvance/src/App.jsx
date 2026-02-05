@@ -4,7 +4,7 @@ const App = () => {
   // const [num, setnum] = useState({user:'Harshal' , age:23});
   
 
-  const [num, setnum] = useState([10,20,30,40]);
+  const [num, setnum] = useState({user:'Rishi' , age:12});
   // const btnClicked =()=>{
   //     const newNum={...num}
   //      newNum.user='Aman'
@@ -16,9 +16,13 @@ const App = () => {
   // }
 
   const btnClicked =()=>{
-    const newNum=[...num];
-    newNum.push(99);
-    setnum(newNum);
+    // const newNum=[...num];
+    // newNum.push(99);
+    // setnum(newNum);
+
+    setnum(prev =>({
+      ...prev , age:50
+    }))
   }
   
   return (
@@ -26,7 +30,7 @@ const App = () => {
       {/* <h1>{num.user}, {num.age}</h1>
       <button onClick={btnClicked}>Click</button> */}
       
-      <h2>{num}</h2>
+      <h2>{num.user} , {num.age}</h2>
         <button onClick={btnClicked}>Click</button>
 
     </div>
