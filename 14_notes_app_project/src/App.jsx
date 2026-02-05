@@ -1,31 +1,71 @@
 import React from 'react'
-
+import { useState } from 'react';
 const App = () => {
   const submitHandler =(e)=>{
      e.preventDefault();
-    console.log("Form is submitted");
+
+     const copyTask=[...task];
+
+     copyTask.push({title , details});
+     setTask(copyTask);
+     console.log(copyTask);
+    setTitle(' ');
+    setDetails(' ');
   }
+
+ const [title, setTitle] = useState('');
+
+const [details, setDetails] = useState();
+
+const [task, setTask] = useState([]);
   return (
-    <div className='h-screen  bg-black text-white'>
-    <form onSubmit={(e)=>{
+    <div className='h-screen lg:flex bg-black text-white  '>
+     
+    <form onSubmit={(e)=>{ 
       submitHandler(e)
     }}
-    className='flex justify-between items-start  p-10'>
-    <div className='flex w-1/2 items-start gap-4 flex-col'>
+    className='flex gap-4 lg:w-1/2 flex-col items-start  p-10'>
+       <h1 className='text-3xl font-bold'>ADD NOTES</h1> 
+       {/* FIRST INPUT FOR HEADING */}
        <input type='text' 
       placeholder='Enter Notes Heading' 
       className='px-5 w-full py-2 font-medium border-2 outline-none rounded'
+      value={title}
+      onChange={(e)=>{
+       setTitle(e.target.value)
+      }}
       />
+
+    {/* SECOND INPUT FOR HEADING */}
       <textarea
       type= 'text'
       placeholder='Write Detail'
         className='px-5 w-full  h-32 py-2 flex items-start flex-row border-2 outline-none rounded'
+         value={details}
+         onChange={(e)=>{
+          setDetails(e.target.value);
+         }}
        />
 
-       <button className='bg-white w-full text-black outline-none px-5 py-2 rounded'>Add Button</button>
-     </div>
-    <img  className='h-72'src='https://imgs.search.brave.com/eliG2SzIwcJ_wvslqCuiaoVelA2P6pF-R6DnKTpyPGA/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/cG5nYWxsLmNvbS93/cC1jb250ZW50L3Vw/bG9hZHMvNS9TdGlj/a3ktTm90ZXMtUE5H/LUZpbGUtRG93bmxv/YWQtRnJlZS5wbmc' />
+       <button className='bg-white w-full text-black outline-none 
+       px-5 py-2 rounded active:bg-black'>Add Button</button>
+     
+    
     </form>
+
+    <div className=' lg:w-1/2  lg:border-l-2   p-10'>
+    <h1 className='text-3xl font-bold'>RECENT NOTES</h1>
+    <div className='flex  flex-wrap items-start justify-start gap-5 mt-5  h-full overflow-auto'>
+        {task.map(function(elem, index){
+          return <div key={index} className='h-52 w-40 rounded-xl text-black p-4 bg-white'> 
+          <h3 className='leading-tight text-xl font-bold'>{elem.title}</h3>
+          <p className='mt-2 leading-tight font-medium text-gray-500 overflow-y-auto'>{elem.details}</p>
+          </div>
+        })}
+           
+    </div>
+     
+    </div>
     </div>
   )
 }
