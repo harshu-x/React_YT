@@ -1,5 +1,6 @@
 import React from 'react'
 import { useState } from 'react';
+import { X } from 'lucide-react';
 const App = () => {
   const submitHandler =(e)=>{
      e.preventDefault();
@@ -18,6 +19,15 @@ const App = () => {
 const [details, setDetails] = useState();
 
 const [task, setTask] = useState([]);
+
+const deleteNote =(index)=>{
+    const copyTask =[...task];
+    console.log(copyTask[index]);
+
+    copyTask.splice(index ,1);
+    setTask(copyTask);
+}
+
   return (
     <div className='h-screen lg:flex bg-black text-white  '>
      
@@ -55,11 +65,16 @@ const [task, setTask] = useState([]);
 
     <div className=' lg:w-1/2  lg:border-l-2   p-10'>
     <h1 className='text-3xl font-bold'>RECENT NOTES</h1>
-    <div className='flex  flex-wrap items-start justify-start gap-5 mt-5  h-full overflow-auto'>
+    <div className='flex  flex-wrap items-start justify-start gap-5 mt-5  h-[90%] overflow-auto'>
         {task.map(function(elem, index){
-          return <div key={index} className='h-52 w-40 rounded-xl text-black p-4 bg-white'> 
-          <h3 className='leading-tight text-xl font-bold'>{elem.title}</h3>
+          return <div key={index} className='flex justify-between flex-col items-start relative pb-5 h-52 w-40 rounded-xl text-black p-4 bg-white'> 
+          <div>
+            <h3 className='leading-tight text-xl font-bold'>{elem.title}</h3>
           <p className='mt-2 leading-tight font-medium text-gray-500 overflow-y-auto'>{elem.details}</p>
+            </div>
+             <button onClick={()=>{
+              deleteNote(index);
+             }} className='w-full cursor-pointer active:scale-95 bg-red-500 py-1 text-xs rounded font-bold text-white'>Delete</button>
           </div>
         })}
            
