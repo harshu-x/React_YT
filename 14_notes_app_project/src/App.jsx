@@ -1,6 +1,5 @@
 import React from 'react'
 import { useState } from 'react';
-import { X } from 'lucide-react';
 const App = () => {
   const submitHandler =(e)=>{
      e.preventDefault();
