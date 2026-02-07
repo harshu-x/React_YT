@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import axios from 'axios'
+import Card from './components/Card';
 import { useState } from 'react';
 const App = () => {
    const [userData, setUserData] = useState([]);
@@ -23,12 +24,8 @@ const App = () => {
   if(userData.length>0){
     printUserData = userData.map(function(elem , index){
       return <div key={index}>
-        <a href={elem.url} target='_blank'>
-      <div className='h-40 w-44 overflow-hidden bg-white rounded-xl' >
-        <img className='h-full object-cover' src={elem.download_url} alt='' />
-      </div>
-      <h2 className='font-bold text-lg'>{elem.author}</h2>
-        </a>
+      
+      <Card elem={elem} />
         
       </div>
     })
@@ -41,13 +38,16 @@ const App = () => {
       </div>
 
       <div className='flex justify-center gap-6 items-center p-4'>
-        <button className='bg-amber-400 text-sm cursor-pointer active:scale-95 text-black rounded px-4 py-2 font-semibold'
+        <button
+        style={{opacity:index ===1 ? 0.5 :1}}
+        className='bg-amber-400 text-sm cursor-pointer active:scale-95 text-black rounded px-4 py-2 font-semibold'
          onClick={()=>{
           if(index>1)
            setIndex(index-1);
           setUserData([]);
          }}
         >Previous</button>
+        <h4>Page {index}</h4>
           <button className='bg-amber-400 text-sm cursor-pointer active:scale-95 text-black rounded px-4 py-2 font-semibold'
           onClick={()=>{
             setIndex(index+1);
