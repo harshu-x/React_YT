@@ -6,9 +6,11 @@ const Navbar = () => {
      <h2 className='text-xl font-bold'>ReactJS School</h2>
      <div className='flex gap-10'>
         <Link className='text-lg font-medium' to ='/' > Home</Link>
-         <Link className='text-lg font-medium'  to ='/about' > About</Link>
-          <Link className='text-lg font-medium'  to ='/product' > Product</Link>
-     
+        <Link className='text-lg font-medium'  to ='/about' > About</Link>
+         <Link className='text-lg font-medium' to ='/courses' > Course</Link>
+        <Link className='text-lg font-medium'  to ='/product' > Product</Link>
+        
+      
      </div>
     </div>
   )
