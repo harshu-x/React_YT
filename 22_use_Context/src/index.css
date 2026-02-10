@@ -8,12 +8,23 @@ html,body{
 }
 
 .nav{
-  display: flex;
+
+}
+.light{
   background-color: lightseagreen;
+    display: flex;
+  
   justify-content: space-between;
   padding:20px 40px;
 }
 
+.dark{
+  background-color: darkslategray;
+    display: flex;
+  
+  justify-content: space-between;
+  padding:20px 40px;
+}
 .nav2{
   display: flex;
   gap:30px;
