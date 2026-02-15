@@ -1,5 +1,6 @@
-button{
-  background-color: lightseagreen;
-  padding:12px 10px;
-  margin:2px;
+@import "tailwindcss";
+
+
+body{
+  background-color: #111;
 }
