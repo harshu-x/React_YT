@@ -40,13 +40,13 @@ const App = () => {
   }
 ]
 
-  users.forEach(function(){
-   console.log("hi");
-  })
+
   return (
     <div>
       <div className='p-10'>
-         <Card user="Sarthak" age='20' city='Bhopal'  />
+        {users.map(function(elem, index){
+            return <Card key={index} username={elem.name} age={elem.age} city={elem.city} prof={elem.profession} pic={elem.profilePhoto}/>
+        })}
       </div>
     
     </div>
