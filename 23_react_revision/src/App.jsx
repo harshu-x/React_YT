@@ -1,13 +1,17 @@
 import React from 'react'
-import { useState } from 'react';
-import TwoWayBinding from './components/TwoWayBinding';
+
+import Components from './components_2/Components'
 const App = () => {
 
   
   return (
-    <div>
-     <TwoWayBinding />
-    </div>
+   <>
+     
+     <Components />
+   
+
+
+   </>
   )
 }
 
