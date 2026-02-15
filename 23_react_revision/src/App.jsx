@@ -1,13 +1,14 @@
-import React from 'react'
-import Card from './components/Card'
-import PropsPassing from './components_2/PropsPassing'
-
+import { useState } from 'react';
+import axios from 'axios'
+import API from './components_2/API';
 const App = () => {
 
-
-  return (
   
-      <PropsPassing />
+  return (
+  <div>
+    <API />
+  </div>
+  
   )
 }
 
