@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const RouterDomHeader = () => {
   return (
@@ -7,11 +8,12 @@ const RouterDomHeader = () => {
 
       <h2 className='text-2xl '>Harshal</h2>
 
-      <div className='flex gap-11'>
-        <a className='text-xl underline' href='/'>Home</a>
-        <a className='text-xl underline' href='/about'>About</a>
-        <a className='text-xl underline' href='/contact'>Contact</a>
-        <a className='text-xl underline' href='/product'>Product</a>
+      <div className='flex gap-11 text-lg underline'>
+        <Link to='/'>Home</Link>
+         <Link to='/about'>About</Link>
+          <Link to='/contact'>Contact</Link>
+           <Link to='/product'>Product</Link>
+      
       </div>                    
     </div>
   )
