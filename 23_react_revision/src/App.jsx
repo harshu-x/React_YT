@@ -1,14 +1,11 @@
-import { useState } from 'react';
-import axios from 'axios'
-import API from './components_2/API';
-const App = () => {
+import React from 'react'
+import ReactRouterDom from './components_2/ReactRouterDom'
 
-  
+const App = () => {
   return (
-  <div>
-    <API />
-  </div>
-  
+    <div>
+      <ReactRouterDom />
+    </div>
   )
 }
 
